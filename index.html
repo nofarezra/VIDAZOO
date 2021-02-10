@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<body>
+    <button onclick="changeDivId()">Change Div ID</button>
+    <iframe src="div.html" height="200" width="300" title="Iframe Example" id="iframeid" allowpaymentrequest="true">
+    </iframe>
+    <script>        
+        const iframeElement = document.getElementById("iframeid");
+        console.log("iframe document before change:")
+        console.log(iframeElement);
+        const iframeDocument = iframeElement.contentDocument;
+        function changeDivId() {
+            iframeDocument.open("replace");
+            iframeDocument.write("<!DOCTYPE html><body id='bodyid'><div id='mydiv2'>My Div</div></body></html>");
+            iframeDocument.close();
+            console.log("iframe document after change:")
+            console.log(iframeDocument);
+        }
+    </script>
+</body>
+</html>
